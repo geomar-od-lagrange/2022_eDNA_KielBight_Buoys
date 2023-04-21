@@ -14,7 +14,7 @@ jobs:
   run_forecast:
     runs-on: ubuntu-22.04
     container:
-      image: docker://pangeo/pangeo-noteboook:2023.04.15
+      image: docker://pangeo/pangeo-notebook:2023.04.15
       options: --user 1001  # https://github.community/t/how-to-run-action-as-a-non-root-user/17572/2
     steps:
       - uses: actions/checkout@v1
