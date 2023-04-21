@@ -11,7 +11,7 @@ on:
       - main
 
 jobs:
-  run_forecast:
+  plot_vessel_and_buoy_pos:
     runs-on: ubuntu-22.04
     container:
       image: docker://pangeo/pangeo-notebook:2023.04.15
