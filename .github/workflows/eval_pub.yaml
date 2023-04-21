@@ -43,7 +43,7 @@ jobs:
         run: |
           mkdir -p ./public
           cp ci_out/*.html ./public/.
-          echo '<meta HTTP-EQUIV="REFRESH" content="0; url=030_plot_forecast_data.html">' > ./public/index.html
+          echo '<meta HTTP-EQUIV="REFRESH" content="0; url=01_get_data_and_first_look.html">' > ./public/index.html
       - name: Deploy pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
