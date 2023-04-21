@@ -33,12 +33,12 @@ jobs:
         if: ${{ always() }}
         run: |
           bash -c ". /srv/conda/etc/profile.d/conda.sh && conda activate notebook && cd ci_out/ && jupyter nbconvert --to HTML \*.ipynb"
-      - name: Upload notebook
-        uses: actions/upload-artifact@v1
-        if: ${{ always() }}
-        with:
-          name: ci_out
-          path: ci_out/
+      # - name: Upload notebook
+      #   uses: actions/upload-artifact@v1
+      #   if: ${{ always() }}
+      #   with:
+      #     name: ci_out
+      #     path: ci_out/
       - name: Prepare pages
         run: |
           mkdir -p ./public
