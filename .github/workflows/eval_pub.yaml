@@ -24,7 +24,7 @@ jobs:
         run: |
           export TAO_FTP_USER=${{ secrets.TAO_FTP_USER }} 
           export TAO_FTP_PASS=${{ secrets.TAO_FTP_PASS }} 
-          bash -c ". /srv/conda/etc/profile.d/conda.sh && conda activate notebook && .ci/run_all_notebooks.py --dir . --out ci_out/"
+          bash -c ". /srv/conda/etc/profile.d/conda.sh && conda activate notebook && python -m pip install papermill && .ci/run_all_notebooks.py --dir . --out ci_out/"
       - name: Complete listing of data dirs
         if: ${{ always() }}
         run: |
