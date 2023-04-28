@@ -2,7 +2,7 @@ name: eval and publish notebooks
 
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/15 * * * *"
   push:
     branches:
       - main
