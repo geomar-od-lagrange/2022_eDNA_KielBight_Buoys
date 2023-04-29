@@ -20,11 +20,25 @@ jobs:
       - uses: actions/checkout@v1
       - name: Initialize conda
         run: bash -c "conda init bash"
+      - name: Restore cached buoy positions
+        id: cache-buoy-positions-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: |
+            data/buoys
+          key: buoy-positions
       - name: Run all notebooks with papermill
         run: |
           export TAO_FTP_USER=${{ secrets.TAO_FTP_USER }} 
           export TAO_FTP_PASS=${{ secrets.TAO_FTP_PASS }} 
           bash -c ". /srv/conda/etc/profile.d/conda.sh && conda activate notebook && python -m pip install papermill && .ci/run_all_notebooks.py --dir . --out ci_out/"
+      - name: Save buoy positions
+        id: cache-buoy-positions-save
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            data/buoys
+          key: buoy-positions
       - name: Complete listing of data dirs
         if: ${{ always() }}
         run: |
